@@ -22,7 +22,7 @@ $(MBIT_VER_FILE): FORCE
 	python tools/makeversionhdr.py $(MBIT_VER_FILE)
 
 $(VER_ADDR_FILE): yotta
-	@echo -n "0x" > $(VER_ADDR_FILE)
+	@/bin/echo -n "0x" > $(VER_ADDR_FILE)
 	@objdump -x $(HEX_SRC:.hex=) | grep microbit_version_string | cut -f 1 -d' ' >> $(VER_ADDR_FILE)
 
 deploy: $(HEX_FINAL)
